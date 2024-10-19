@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    int number;  // Declare an integer variable
+
+    // Ask the user for a number
+    std::cout << "Enter a number: ";
+    std::cin >> number;  // Take input from the user
+
+    // Display the number
+    std::cout << "You entered: " << number << std::endl;
+
+    return 0;
+}
