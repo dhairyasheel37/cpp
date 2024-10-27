@@ -4,16 +4,38 @@ using namespace std;
 
 int add(int a, int b)
 {
-    if (((a>0)||(a<0) && (a==0)) && ((b>0)||(b<0) && (b==0)))
+    if (!((a>0)||(a<0) && (a==0)) && ((b>0)||(b<0) && (b==0)))
     {
-            return a+b;
+          return 0;  
     }
-    else
+    return a+b;
+}
+int sub(int a,int b)
+{
+    if (!((a>0)||(a<0) && (a==0)) && ((b>0)||(b<0) && (b==0)))
     {
-        return 0;
+          return 0;  
     }
+    return a-b;
 }
 
+int multiplication(int a,int b)
+{
+    if (!((a>0)||(a<0) && (a==0)) && ((b>0)||(b<0) && (b==0)))
+    {
+          return 0;  
+    }
+    return a*b;
+}
+
+int divition(int a,int b)
+{
+    if (!((a>0)||(a<0) && (a==0)) && ((b>0)||(b<0) && (b==0)))
+    {
+          return 0;  
+    }
+    return a/b;
+}
 
 int onoff_funcatio(char c)
 {
@@ -26,54 +48,109 @@ int main(){
     char onoff;
     cout<<"If on to calculater enter 'o' or 'O'."<<endl;
     cin>>onoff;
+    
+    
     int on = onoff_funcatio(onoff);
     if ( on == 1)
     {
-        int a,r;
+        cout<<"All Clear button is 'a' or 'A'."<<endl;
+        cout<<"off button 'Ctal + C'."<<endl;
+        cout<<"Addition  '+'."<<endl;
+        cout<<"Substraction '-'."<<endl;
+        cout<<"Multiplication '*'."<<endl;
+        cout<<"divition '/'."<<endl;
+        int a,r,j=0;
         int *fa = &a;
-        cin>>a;
-       while (1)
-       {
-        int i = 0,j =0;
-       
-        if(j==1)
-        {
-            cin>>*fa;
-            j--;
-        }
-         char ch;
-        cin>>ch;
-        int b;
-        cin>>b;
-
-        switch (ch)
-        {
-        case '+':
-        a = add(a,b);
-        if (a)
-        {
-            cout<<"= "<<a<<endl;
-            cout<<endl;
-        }
-        else
-        {
-            cout<<"syntax error"<<endl;
-        }
         
-            /* code */
-            break;
-
-        case 'a':
-            delete fa;
-            ++j;
-            break;
+        while (1)
+        {
             
+            cin>>a;
+            
+            while (1)
+            {
         
-        default:
-            break;
+            char ch;
+            int b;
+            
+            cin>>ch;
+            
+
+            if (ch == 'a')
+            {
+                break;
+            }
+            else
+            {
+                cin>>b;
+            }
+            
+
+            switch (ch)
+            {
+                case '+':
+                    a = add(a,b);
+                    if (a)
+                    {
+                        cout<<"= "<<a<<endl;
+                        cout<<endl;
+                    }
+                    else
+                    {
+                       cout<<"syntax error"<<endl;
+                    }
+                /* code */
+                break;
+
+                case 'a':
+                    cout<<"All clear."<<endl;
+                    break;
+            
+                case '-' :
+                    a = sub(a,b);
+                    if (a)
+                    {
+                        cout<<"= "<<a<<endl;
+                        cout<<endl;
+                    }
+                    else
+                    {
+                       cout<<"syntax error"<<endl;
+                    }
+                    break;
+            
+                case '*' :
+                    a = multiplication(a,b);
+                    if (a)
+                    {
+                        cout<<"= "<<a<<endl;
+                        cout<<endl;
+                    }
+                    else
+                    {
+                       cout<<"syntax error"<<endl;
+                    }
+                    break;
+                
+                case '/' :
+                    a = divition(a,b);
+                    if (a)
+                    {
+                        cout<<"= "<<a<<endl;
+                        cout<<endl;
+                    }
+                    else
+                    {
+                       cout<<"syntax error"<<endl;
+                    }
+                    break;               
+                    
+                default:
+                    cout<<"syntax error"<<endl;
+                    break;
+            }   
         }
-        i++;
-       }
+        }     
        
     }
     
